@@ -1,14 +1,21 @@
-public class Resume
-{
-    public string _userName = "";
-    public List<string> _jobs = new List<string>();
+using System;
+using System.Collections.Generic;
 
-    public void DisplayInfo()
+
+namespace Learning02
+{
+    public class Resume
     {
-        Console.WriteLine(_userName);
-        foreach (string job in _jobs)
+        public string _userName = "";
+        public List<string> _jobs = new List<string>();
+
+        public void DisplayInfo()
         {
-            Console.WriteLine(job);
+            Console.WriteLine(_userName);
+            foreach (string job in _jobs)
+            {
+                Console.WriteLine(job);
+            }
         }
     }
 }
