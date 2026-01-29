@@ -8,7 +8,7 @@ namespace Develop02
 {
     public class Journal
     {
-        void WriteEntry()
+        public void WriteEntry()
         {
             Random _rand = new Random();
 
@@ -18,6 +18,15 @@ namespace Develop02
             string user_entry = Console.ReadLine();
 
             Entry journal_entry = new Entry(prompt, user_entry);
+            JournalData.entries.Add(journal_entry.EntryToString());
+        }
+
+        public void Display()
+        {
+            foreach (string entry in JournalData.entries)
+            {
+                Console.WriteLine(entry);
+            }
         }
     }
 }
