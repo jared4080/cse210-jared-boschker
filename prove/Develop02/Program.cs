@@ -9,10 +9,14 @@ class Program
     {
         bool has_quit = false;
 
+        Console.WriteLine("hey! welcome to home of your new journal! :D");
+
         while (!has_quit){            
-            Console.WriteLine("(1) write\n(2) display\n(3) load\n(4) save\n(5) quit");
+            Console.WriteLine("\n(1) write\n(2) display\n(3) load\n(4) save\n(5) quit");
             Console.Write("what would you like to do? ");
             string user_choice = Console.ReadLine();
+            
+            Console.WriteLine("");
 
             Journal journal_instance = new Journal();
 

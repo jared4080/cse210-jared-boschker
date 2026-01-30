@@ -31,26 +31,31 @@ namespace Develop02
 
         public void Save()
         {
-            // Console.Write("where would you want to save your files? ");
-            string file_name = "save_file.csv";
+            Console.Write("where would you like to save your entries?");
+            string file_name = Console.ReadLine();
             string username = Environment.UserName;
-            
-            string save_file = $"/home/{username}/Develop02/{file_name}";
+            string file_path = $"/home/{username}/Develop02/{file_name}";
 
             foreach (string entry in JournalData.entries)
             {
-                File.AppendAllText(save_file, entry + "\n");
+                File.AppendAllText(file_path, entry + Environment.NewLine);
             }
 
-            Console.WriteLine("Saved " + JournalData.entries.Count + " entries to " + save_file);
+            Console.WriteLine($"saved {JournalData.entries.Count} entries to the {file_path} file");
         }
+
 
         public void Load()
         {
-            // PROMPT user for a file to save to
-            // STORE all entreis from that file into a variable
-            // REPLACE all entries into the JournalData entries list
-            return;
+            Console.Write("where would you like to load your entries from?");
+            string file_name = Console.ReadLine();
+            string username = Environment.UserName;
+            string file_path = $"/home/{username}/Develop02/{file_name}";
+
+            string[] lines = File.ReadAllLines(file_path);
+            JournalData.entries = new List<string>(lines);
+
+            Console.WriteLine($"saved {JournalData.entries.Count} entries to the {file_path} file");
         }
     }
 }
