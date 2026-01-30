@@ -32,14 +32,22 @@ namespace Develop02
 
         public void Save()
         {
-            Console.Write("where would you like to save your entries?");
-            string fileName = Console.ReadLine();
+            Console.WriteLine("where would you want to save your entries?");
+            string saveFile = Console.ReadLine();
             string username = Environment.UserName;
-            string filePath = $"/home/{username}/Develop02/{fileName}";
 
-            File.WriteAllLines(filePath, JournalData.entries);
-
+            string filePath = $@"/home/{username}/Documents/cse210-jared-boschker/prove/Develop02";
+            if(Directory.Exists(filePath)){
+                using (StreamWriter streamWriterInstance = new StreamWriter($"{filePath}/{saveFile}", true))
+                    foreach (string line in JournalData.entries)
+                    {
+                        streamWriterInstance.WriteLine(line);
+                    }
+            }
+            else Console.WriteLine("folder doesn't exist");
+            
             Console.WriteLine($"saved {JournalData.entries.Count} entries to the {filePath} file");
+
         }
 
         public void CreateTextFile()
@@ -58,13 +66,19 @@ namespace Develop02
         {
             Console.Write("where would you like to load your entries from?");
             string fileName = Console.ReadLine();
+
             string username = Environment.UserName;
             string filePath = $"/home/{username}/Develop02/{fileName}";
 
             string[] lines = File.ReadAllLines(filePath);
             JournalData.entries = new List<string>(lines);
+            
+            foreach (var entry in JournalData.entries)
+            {
+                Console.WriteLine(entry);
+            }
 
-            Console.WriteLine($"saved {JournalData.entries.Count} entries to the {filePath} file");
+            Console.WriteLine($"loaded {JournalData.entries.Count} entries to the {filePath} file");
         }
     }
 }
