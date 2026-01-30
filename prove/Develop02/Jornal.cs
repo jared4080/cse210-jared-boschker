@@ -13,7 +13,7 @@ namespace Develop02
             Random _rand = new Random();
             string prompt = JournalData.prompts[_rand.Next(JournalData.prompts.Count)];
 
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             string user_entry = Console.ReadLine();
 
             Entry journal_entry = new Entry(prompt, user_entry);
@@ -32,6 +32,7 @@ namespace Develop02
         {
             // PROMPT user for a file to save to
             // SAVE all of the journal entries to the end of that file
+            return;
         }
 
         public void Load()
@@ -39,8 +40,14 @@ namespace Develop02
             // PROMPT user for a file to save to
             // STORE all entreis from that file into a variable
             // REPLACE all entries into the JournalData entries list
+            return;
         }
 
-        
+        public void Quit()
+        {
+            return;
+        }
+
+
     }
 }
