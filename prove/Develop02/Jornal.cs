@@ -16,10 +16,10 @@ namespace Develop02
             string prompt = JournalData.prompts[_rand.Next(JournalData.prompts.Count)];
 
             Console.Write(prompt);
-            string user_entry = Console.ReadLine();
+            string userEntry = Console.ReadLine();
 
-            Entry journal_entry = new Entry(prompt, user_entry);
-            JournalData.entries.Add(journal_entry.EntryToString());
+            Entry journalEntry = new Entry(prompt, userEntry);
+            JournalData.entries.Add(journalEntry.EntryToString());
         }
 
         public void Display()
@@ -57,14 +57,14 @@ namespace Develop02
         public void Load()
         {
             Console.Write("where would you like to load your entries from?");
-            string file_name = Console.ReadLine();
+            string fileName = Console.ReadLine();
             string username = Environment.UserName;
-            string file_path = $"/home/{username}/Develop02/{file_name}";
+            string filePath = $"/home/{username}/Develop02/{fileName}";
 
-            string[] lines = File.ReadAllLines(file_path);
+            string[] lines = File.ReadAllLines(filePath);
             JournalData.entries = new List<string>(lines);
 
-            Console.WriteLine($"saved {JournalData.entries.Count} entries to the {file_path} file");
+            Console.WriteLine($"saved {JournalData.entries.Count} entries to the {filePath} file");
         }
     }
 }
