@@ -12,7 +12,7 @@ class Program
         Console.WriteLine("hey! welcome to home of your new journal! :D");
 
         while (!has_quit){            
-            Console.WriteLine("\n(1) write\n(2) display\n(3) load\n(4) save\n(5) quit");
+            Console.WriteLine("\n(1) write\n(2) display\n(3) load\n(4) save\n(5) create save file\n(6) quit");
             Console.Write("what would you like to do? ");
             string user_choice = Console.ReadLine();
             
@@ -35,6 +35,9 @@ class Program
                     journal_instance.Save();
                     break;
                 case "5":
+                    journal_instance.CreateTextFile();
+                    break;
+                case "6":
                     has_quit = true;
                     Console.WriteLine("okay, see you later! :D");
                     break;
