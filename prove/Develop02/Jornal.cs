@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks.Dataflow;
@@ -30,9 +31,18 @@ namespace Develop02
 
         public void Save()
         {
-            // PROMPT user for a file to save to
-            // SAVE all of the journal entries to the end of that file
-            return;
+            // Console.Write("where would you want to save your files? ");
+            string file_name = "save_file.csv";
+            string username = Environment.UserName;
+            
+            string save_file = $"/home/{username}/Develop02/{file_name}";
+
+            foreach (string entry in JournalData.entries)
+            {
+                File.AppendAllText(save_file, entry + "\n");
+            }
+
+            Console.WriteLine("Saved " + JournalData.entries.Count + " entries to " + save_file);
         }
 
         public void Load()
@@ -42,12 +52,5 @@ namespace Develop02
             // REPLACE all entries into the JournalData entries list
             return;
         }
-
-        public void Quit()
-        {
-            return;
-        }
-
-
     }
 }
