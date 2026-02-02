@@ -10,44 +10,48 @@ namespace Learning03
 
         public Fraction()
         {
-            return;
-        }
-        public Fraction(int wholeNumber)
-        {
-            return;
-        }
-        public Fraction(int topNumber, int bottomNumber)
-        {
-            return;
+            _top = 1;
+            _bottom = 1;
         }
 
-        int GetTop()
+        public Fraction(int topNumber)
+        {
+            _top = topNumber;
+        }
+
+        public Fraction(int topNumber, int bottomNumber)
+        {
+            _top = topNumber;
+            _bottom = bottomNumber;
+        }
+
+        public int GetTop()
         {
             return _top;
         }
 
-        void SetTop(int top)
+        public void SetTop(int top)
         {
             _top = top;
         }
 
-        int GetBottom()
+        public int GetBottom()
         {
             return _bottom;
         }
 
-        void SetBottom(int bottom)
+        public void SetBottom(int bottom)
         {
             _bottom = bottom;
         }
 
-        double CalculateFraction()
+        public double CalculateFraction()
         {
-            double fractionNumber = _bottom / _top;
+            double fractionNumber = Math.Round(_top / (double)_bottom, 1);
             return fractionNumber;
         }
 
-        string GetFractionString()
+        public string GetFractionString()
         {
             double fractionNumber = CalculateFraction();
             string fractionText = fractionNumber.ToString();
@@ -55,7 +59,7 @@ namespace Learning03
             return fractionText;
         }
 
-        double GetDecimalValue()
+        public double GetFractionDecimal()
         {
             double fractionNumber = CalculateFraction();
             
