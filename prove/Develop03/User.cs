@@ -7,10 +7,10 @@ namespace Develop03
     {
         public bool DoesUserQuit()
         {
-            Console.WriteLine("""press enter to continue, or "q" to quit""");
+            Console.Write("""press enter to continue, or "q" to quit: """);
             string userInput = Console.ReadLine();
 
-            if (userInput == "q")
+            if (userInput.ToLower() == "q")
             {
                 return true;
             }

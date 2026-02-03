@@ -5,12 +5,12 @@ namespace Develop03
 {
     public class ProgramManager
     {
-        void Quit()
+        public void Quit()
         {
-            Console.WriteLine("quit");
+            System.Environment.Exit(1);
         }
 
-        void ClearConsole()
+        public void ClearConsole()
         {
             Console.WriteLine("clear console");
         }

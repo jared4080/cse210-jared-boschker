@@ -37,5 +37,10 @@ namespace Develop03
         {
             return currentPhrase;
         }
+
+        public bool GetIsErased()
+        {
+            return isPhraseErased;
+        }
     }
 }
