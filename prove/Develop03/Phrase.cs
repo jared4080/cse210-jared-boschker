@@ -18,7 +18,6 @@ namespace Develop03
         public Phrase()
         {
             currentPhrase = SelectRandomPhrase();
-            Console.WriteLine(currentPhrase);
         }
 
         public string SelectRandomPhrase()
@@ -27,6 +26,16 @@ namespace Develop03
             string randomPhrase = phrases[random.Next(phrases.Count)];
             
             return randomPhrase;
+        }
+
+        public void DisplayPhrase()
+        {
+            Console.WriteLine(currentPhrase);
+        }
+
+        public string GetCurrentPhrase()
+        {
+            return currentPhrase;
         }
     }
 }
