@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 
@@ -41,6 +42,11 @@ namespace Develop03
         public bool GetIsErased()
         {
             return isPhraseErased;
+        }
+
+        public void ChangePhrase(string newPhrase)
+        {
+            currentPhrase = newPhrase;
         }
     }
 }

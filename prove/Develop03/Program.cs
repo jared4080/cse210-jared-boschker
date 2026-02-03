@@ -18,7 +18,13 @@ class Program
             }
             else
             {
-                Console.WriteLine("continue");
+                // IF phrase is full of underscores
+                    // QUIT
+                //ELSE
+                    // REPLACE words that haven't been replaced with underscores
+                
+                
+                phrase.DisplayPhrase();
             }
         }
     }
