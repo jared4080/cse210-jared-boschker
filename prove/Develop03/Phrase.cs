@@ -44,7 +44,7 @@ namespace Develop03
             return isPhraseErased;
         }
 
-        public void ChangePhrase(string newPhrase)
+        public void SetPhrase(string newPhrase)
         {
             currentPhrase = newPhrase;
         }
