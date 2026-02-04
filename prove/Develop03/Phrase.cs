@@ -49,12 +49,7 @@ namespace Develop03
         {
             return currentPhrase;
         }
-
-        public bool GetIsErased()
-        {
-            return isPhraseErased;
-        }
-
+        
         public void SetPhrase(string newPhrase)
         {
             currentPhrase = newPhrase;
