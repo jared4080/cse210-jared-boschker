@@ -7,14 +7,14 @@ class Program
     static void Main(string[] args)
     {
         ProgramManager programManager = new ProgramManager();
-        WordExtractor wordExtractor = new WordExtractor();
+        WordManager wordManager = new WordManager();
         Phrase phrase = new Phrase();
         User user = new User();
 
         List<string> words = new List<string>();
 
         string currentPhrase = phrase.GetCurrentPhrase();
-        words = wordExtractor.GetWordsInPhrase(currentPhrase);
+        words = wordManager.GetWordsInPhrase(currentPhrase);
 
         while (true)
         {
@@ -25,9 +25,9 @@ class Program
             else
             {
                 currentPhrase = phrase.GetCurrentPhrase();
-                words = wordExtractor.GetWordsInPhrase(currentPhrase);
+                words = wordManager.GetWordsInPhrase(currentPhrase);
                 
-                string newPhrase = wordExtractor.RemoveWords(words, 3);
+                string newPhrase = wordManager.RemoveWords(words, 3);
 
                 phrase.SetPhrase(newPhrase);
                 phrase.DisplayPhrase();

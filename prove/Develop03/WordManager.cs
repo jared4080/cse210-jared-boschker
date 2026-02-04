@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Develop03
 {
-    public class WordExtractor
+    public class WordManager
     {
         List<string> wordsToExtract = new List<string>();
         List<string> extractedWords = new List<string>();
