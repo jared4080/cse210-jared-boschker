@@ -35,14 +35,11 @@ class Program
                 phrase.SetPhrase(newPhrase);
                 phrase.DisplayPhrase();
 
-                // CHECK to see if each element in a list contains underscore
 
-                foreach (string word in words)
+                bool isEmpty = phrase.CheckIfEmpty(words, "_");
+
+                if (isEmpty)
                 {
-                    if (!word.Contains('_'))
-                    {
-                        break;
-                    }
                     programManager.Quit();
                 }
             }

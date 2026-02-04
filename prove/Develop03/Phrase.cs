@@ -7,7 +7,6 @@ namespace Develop03
 {
     public class Phrase
     {
-        private bool isPhraseErased;
         private string currentPhrase;
         private List<string> phrases = new List<string>
         {
@@ -27,6 +26,18 @@ namespace Develop03
             string randomPhrase = phrases[random.Next(phrases.Count)];
             
             return randomPhrase;
+        }
+
+        public bool CheckIfEmpty(List<string> phraseList, string characterToFind)
+        {
+            foreach (string word in phraseList)
+            {
+                if (!word.Contains(characterToFind))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void DisplayPhrase()
