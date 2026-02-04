@@ -31,18 +31,16 @@ namespace Develop03
         {
             List<string> newWordsList = new List<string>(words);
             Random random = new Random();
+            
+            List<int> validIndices = Enumerable.Range(0, newWordsList.Count).Where(i => !newWordsList[i].Contains('_')).ToList();
 
-            for (int i = 0; i < amountToRemove; i++)
+            for (int i = 0; i < amountToRemove && validIndices.Count > 0; i++)
             {
-                
-                int randIndex = random.Next(words.Count);
+                int randIndex = random.Next(validIndices.Count);
+                int index = validIndices[randIndex];
 
-                while (newWordsList[randIndex].Contains('_'))
-                {
-                    randIndex = random.Next(words.Count);
-                }
-
-                newWordsList[randIndex] = new string('_', newWordsList[randIndex].Length);
+                newWordsList[index] = new string('_', newWordsList[index].Length);
+                validIndices.RemoveAt(randIndex);
             }
 
             return string.Join(" ", newWordsList);
