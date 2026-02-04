@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
 
@@ -17,43 +19,26 @@ namespace Develop03
             string currentPhrase = phrase.GetCurrentPhrase();
         }
 
-        public List<string> ExtractWords(string phrase)
+        public List<string> GetWordsInPhrase(string phrase)
         {
             List<string> wordsInPhrase = new List<string>();
             wordsInPhrase = phrase.Split(' ').ToList();
 
-            foreach (string word in wordsInPhrase)
-            {
-                if (!word.Contains('_'))
-                {
-                    wordsInPhrase.Add(word);
-                }
-            }
-
             return wordsInPhrase;
         }
 
-        // FIX THIS METHOD
-        void RemoveWordsInPhrase(List<string> wordsInPhrase)
+        public string RemoveWords(List<string> words, int amountToRemove)
         {
+            List<string> newWordsList = new List<string>(words);
             Random random = new Random();
 
-            List<string> words = wordsInPhrase;
-
-            for (int i = 0; i < 3; i++)
-            {                
-                int randomIndex = random.Next(wordsInPhrase.Count);
-                string chosenWord = wordsInPhrase[randomIndex];
-
-                for (int wordIndex = 0; wordIndex < wordsInPhrase.Count; wordIndex++)
-                {
-                    if (wordsInPhrase[wordIndex] == chosenWord)
-                    {
-                        words[wordIndex] = new string('_', chosenWord.Length);
-                        break;
-                    }
-                }
+            for (int i = 0; i < amountToRemove; i++)
+            {
+                int randIndex = random.Next(words.Count);
+                newWordsList[randIndex] = new string('_', newWordsList[randIndex].Length);
             }
+
+            return string.Join(" ", newWordsList);
         }
     }
 }
