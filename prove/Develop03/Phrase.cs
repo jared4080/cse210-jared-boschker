@@ -11,12 +11,15 @@ namespace Develop03
         string location;
         List<string> phrases = new List<string>
         {
+            "For God so loved the world that he gave* his only Son, so that everyone who believes in him might not perish but might have eternal life",
+            "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to Him, and He will make your paths straight.",
             "I want chicken, but I want it to be the really good chicken from minecraft",
             "they just want love in life, but struggle to find it. it's okay tho",
         };
 
         public Phrase()
         {
+            currentPhrase = SelectRandomPhrase();
             location = "";
         }
 
