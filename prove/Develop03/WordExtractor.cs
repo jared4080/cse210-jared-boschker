@@ -34,7 +34,14 @@ namespace Develop03
 
             for (int i = 0; i < amountToRemove; i++)
             {
+                
                 int randIndex = random.Next(words.Count);
+
+                while (newWordsList[randIndex].Contains('_'))
+                {
+                    randIndex = random.Next(words.Count);
+                }
+
                 newWordsList[randIndex] = new string('_', newWordsList[randIndex].Length);
             }
 
