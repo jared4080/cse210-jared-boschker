@@ -15,6 +15,8 @@ class Program
 
         string currentPhrase = phrase.GetCurrentPhrase();
         words = wordManager.GetWordsInPhrase(currentPhrase);
+        
+        programManager.ClearConsole();
 
         while (true)
         {
@@ -24,10 +26,14 @@ class Program
             }
             else
             {
+                int wordRemoveAmount = user.GetUserNumber();
+
                 currentPhrase = phrase.GetCurrentPhrase();
                 words = wordManager.GetWordsInPhrase(currentPhrase);
                 
-                string newPhrase = wordManager.RemoveWords(words, 3);
+                string newPhrase = wordManager.RemoveWords(words, wordRemoveAmount);
+
+                programManager.ClearConsole();
 
                 phrase.SetPhrase(newPhrase);
                 phrase.DisplayPhrase();

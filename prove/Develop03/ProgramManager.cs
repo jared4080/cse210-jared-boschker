@@ -12,7 +12,7 @@ namespace Develop03
 
         public void ClearConsole()
         {
-            Console.WriteLine("clear console");
+            Console.Clear();
         }
     }
 }
