@@ -12,7 +12,7 @@ class Program
         User user = new User();
 
         List<string> words = new List<string>();
-
+        
         string currentPhrase = phrase.GetCurrentPhrase();
         words = wordManager.GetWordsInPhrase(currentPhrase);
         

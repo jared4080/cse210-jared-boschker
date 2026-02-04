@@ -7,17 +7,29 @@ namespace Develop03
 {
     public class Phrase
     {
-        private string currentPhrase;
-        private List<string> phrases = new List<string>
+        string currentPhrase;
+        string location;
+        List<string> phrases = new List<string>
         {
             "I want chicken, but I want it to be the really good chicken from minecraft",
             "they just want love in life, but struggle to find it. it's okay tho",
         };
 
-
         public Phrase()
         {
+            location = "";
+        }
+
+        public Phrase(string book, string verse, string chapter)
+        {
             currentPhrase = SelectRandomPhrase();
+            location = $"{book} {chapter}:{verse}";
+        }
+
+        public Phrase(string book, string startVerse, string endVerse, string chapter)
+        {
+            currentPhrase = SelectRandomPhrase();
+            location = $"{book} {chapter}:{startVerse}-{endVerse}";
         }
 
         public string SelectRandomPhrase()
@@ -42,7 +54,7 @@ namespace Develop03
 
         public void DisplayPhrase()
         {
-            Console.WriteLine(currentPhrase);
+            Console.WriteLine($"{location} {currentPhrase}");
         }
 
         public string GetCurrentPhrase()
