@@ -7,9 +7,9 @@ namespace Develop03
 {
     public class Phrase
     {
-        string currentPhrase;
-        string location;
-        List<string> phrases = new List<string>
+        string _currentPhrase;
+        string _location;
+        List<string> _phrases = new List<string>
         {
             "For God so loved the world that he gave* his only Son, so that everyone who believes in him might not perish but might have eternal life",
             "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to Him, and He will make your paths straight.",
@@ -19,26 +19,26 @@ namespace Develop03
 
         public Phrase()
         {
-            currentPhrase = SelectRandomPhrase();
-            location = "";
+            _currentPhrase = SelectRandomPhrase();
+            _location = "";
         }
 
         public Phrase(string book, string verse, string chapter)
         {
-            currentPhrase = SelectRandomPhrase();
-            location = $"{book} {chapter}:{verse}";
+            _currentPhrase = SelectRandomPhrase();
+            _location = $"{book} {chapter}:{verse}";
         }
 
         public Phrase(string book, string startVerse, string endVerse, string chapter)
         {
-            currentPhrase = SelectRandomPhrase();
-            location = $"{book} {chapter}:{startVerse}-{endVerse}";
+            _currentPhrase = SelectRandomPhrase();
+            _location = $"{book} {chapter}:{startVerse}-{endVerse}";
         }
 
         public string SelectRandomPhrase()
         {
             Random random = new Random();
-            string randomPhrase = phrases[random.Next(phrases.Count)];
+            string randomPhrase = _phrases[random.Next(_phrases.Count)];
             
             return randomPhrase;
         }
@@ -57,17 +57,17 @@ namespace Develop03
 
         public void DisplayPhrase()
         {
-            Console.WriteLine($"{location} {currentPhrase}");
+            Console.WriteLine($"{_location} {_currentPhrase}");
         }
 
         public string GetCurrentPhrase()
         {
-            return currentPhrase;
+            return _currentPhrase;
         }
         
         public void SetPhrase(string newPhrase)
         {
-            currentPhrase = newPhrase;
+            _currentPhrase = newPhrase;
         }
     }
 }

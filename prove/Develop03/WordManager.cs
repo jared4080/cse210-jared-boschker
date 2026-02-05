@@ -9,10 +9,6 @@ namespace Develop03
 {
     public class WordManager
     {
-        List<string> wordsToExtract = new List<string>();
-        List<string> extractedWords = new List<string>();
-
-
         void HideRandomWords()
         {
             Phrase phrase = new Phrase();
