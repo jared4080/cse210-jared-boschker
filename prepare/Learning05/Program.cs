@@ -23,7 +23,7 @@ class Program
             string color = shape.GetColor();
             double area = shape.GetArea();
 
-            Console.WriteLine($"the area of the shape is {area}. it's also {color} btw");
+            Console.WriteLine($"the area of this shape is {area}. it's also {color} btw");
         }
     }
 }
