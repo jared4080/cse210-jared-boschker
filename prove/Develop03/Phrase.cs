@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
@@ -9,38 +10,38 @@ namespace Develop03
     {
         string _currentPhrase;
         string _location;
-        List<string> _phrases = new List<string>
+        string _subject;
+
+        Dictionary<string, string> _phrases_dict = new Dictionary<string, string>
         {
-            "For God so loved the world that he gave* his only Son, so that everyone who believes in him might not perish but might have eternal life",
-            "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to Him, and He will make your paths straight.",
-            "I want chicken, but I want it to be the really good chicken from minecraft",
-            "they just want love in life, but struggle to find it. it's okay tho",
+            {"lava chicken by jack black", "La-la-la-lava, ch-ch-ch-chicken Steve's Lava Chicken, yeah, it's tasty as hell Ooh, mamacita, now you're ringin' the bell Crispy and juicy, now you're havin' a snack Ooh, super spicy, it's a lava attack"},
+            
+            {"minecraft", "I want chicken, but I want it to be the really good chicken from minecraft"},
+            
+            {"something about love", "they just want love in life, but struggle to find it. it's okay tho"},
+            
+            {"john 6:35", "And Jesus said unto them, I am the bread of like: he that cometh to me shall never hunger; and he that believeth on me shall never thirst."}
         };
+
 
         public Phrase()
         {
             _currentPhrase = SelectRandomPhrase();
-            _location = "";
-        }
-
-        public Phrase(string book, string verse, string chapter)
-        {
-            _currentPhrase = SelectRandomPhrase();
-            _location = $"{book} {chapter}:{verse}";
-        }
-
-        public Phrase(string book, string startVerse, string endVerse, string chapter)
-        {
-            _currentPhrase = SelectRandomPhrase();
-            _location = $"{book} {chapter}:{startVerse}-{endVerse}";
         }
 
         public string SelectRandomPhrase()
         {
             Random random = new Random();
-            string randomPhrase = _phrases[random.Next(_phrases.Count)];
-            
-            return randomPhrase;
+
+            string randomSubject = _phrases_dict.Keys.ElementAt(random.Next(_phrases_dict.Count));
+            SetSubject(randomSubject);
+
+            return _phrases_dict[randomSubject];
+        }
+
+        public string GetCurrentSubject()
+        {
+            return _subject;
         }
 
         public bool CheckIfEmpty(List<string> phraseList, string characterToFind)
@@ -57,7 +58,7 @@ namespace Develop03
 
         public void DisplayPhrase()
         {
-            Console.WriteLine($"{_location} {_currentPhrase}");
+            Console.WriteLine($"{_subject} - {_currentPhrase}");
         }
 
         public string GetCurrentPhrase()
@@ -68,6 +69,11 @@ namespace Develop03
         public void SetPhrase(string newPhrase)
         {
             _currentPhrase = newPhrase;
+        }
+
+        void SetSubject(string subject)
+        {
+            _subject = subject;
         }
     }
 }

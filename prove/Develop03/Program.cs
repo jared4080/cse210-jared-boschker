@@ -11,6 +11,8 @@ class Program
         Phrase phrase = new Phrase();
         User user = new User();
 
+        string _subject = phrase.GetCurrentSubject();
+
         List<string> words = new List<string>();
         
         string currentPhrase = phrase.GetCurrentPhrase();
