@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Develop04
 {    
-    class ListeningActivity : Activity
+    public class ListeningActivity : Activity
     {
         double breathInDuration = 5.0;
         double breathOutDuration = 5.0;
@@ -15,7 +15,7 @@ namespace Develop04
             
         }
 
-        void Listen()
+        public override void RunActivity()
         {
             // STARTS countdown
             // PROMPT for entries

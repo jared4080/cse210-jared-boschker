@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Develop04
 {    
-    class BreathingActivity : Activity
+    public class BreathingActivity : Activity
     {
         double breathInDuration = 5.0;
         double breathOutDuration = 5.0;
@@ -15,7 +15,7 @@ namespace Develop04
             
         }
 
-        void Breath(string message, double duration)
+        public override void RunActivity()
         {
             
         }

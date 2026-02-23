@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Develop04
 {    
-    class ReflectionActivity : Activity
+    public class ReflectionActivity : Activity
     {
         double breathInDuration = 5.0;
         double breathOutDuration = 5.0;
@@ -15,7 +15,7 @@ namespace Develop04
             
         }
 
-        void Reflect()
+        public override void RunActivity()
         {
             // LOOP
                 // DISPLAY random prompt

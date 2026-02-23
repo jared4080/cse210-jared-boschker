@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Develop04
 {    
-    class Activity
+    public abstract class Activity
     {
         string _activityName = "";
         string _startMessage = "";
@@ -19,24 +19,24 @@ namespace Develop04
             _duration = duration;
         }
 
-        void DisplayMessage(string message)
+        public void DisplayMessage(string message)
         {
             Console.WriteLine(message);
         }
 
-        void DisplayRandomPrompt(List<string> prompts)
+        public void DisplayRandomPrompt(List<string> prompts)
         {
             Random random = new Random();
             
             string randomPrompt = prompts[random.Next(prompts.Count)];
         }
 
-        void WaitUntilFinished(double duration)
+        public void WaitUntilFinished(double duration)
         {
             
         }
 
-        double GetUserDouble()
+        public double GetUserDouble()
         {
             double userNumber = 0.0;
 
@@ -56,5 +56,7 @@ namespace Develop04
 
             return userNumber;
         }
+
+        public abstract void RunActivity();
     }
 }
