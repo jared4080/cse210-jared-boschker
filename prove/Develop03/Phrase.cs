@@ -12,7 +12,7 @@ namespace Develop03
         string _location;
         string _subject;
 
-        Dictionary<string, string> _phrases_dict = new Dictionary<string, string>
+        Dictionary<string, string> _phrasesDict = new Dictionary<string, string>
         {
             {"lava chicken by jack black", "La-la-la-lava, ch-ch-ch-chicken Steve's Lava Chicken, yeah, it's tasty as hell Ooh, mamacita, now you're ringin' the bell Crispy and juicy, now you're havin' a snack Ooh, super spicy, it's a lava attack"},
             
@@ -33,10 +33,10 @@ namespace Develop03
         {
             Random random = new Random();
 
-            string randomSubject = _phrases_dict.Keys.ElementAt(random.Next(_phrases_dict.Count));
+            string randomSubject = _phrasesDict.Keys.ElementAt(random.Next(_phrasesDict.Count));
             SetSubject(randomSubject);
 
-            return _phrases_dict[randomSubject];
+            return _phrasesDict[randomSubject];
         }
 
         public string GetCurrentSubject()

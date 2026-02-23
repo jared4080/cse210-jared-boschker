@@ -13,16 +13,16 @@ class Program
 
         string _subject = phrase.GetCurrentSubject();
 
-        List<string> words = new List<string>();
+        List<string> _words = new List<string>();
         
         string currentPhrase = phrase.GetCurrentPhrase();
-        words = wordManager.GetWordsInPhrase(currentPhrase);
+        _words = wordManager.GetWordsInPhrase(currentPhrase);
         
         programManager.ClearConsole();
 
         while (true)
         {
-            if (user.DoesUserQuit() || phrase.CheckIfEmpty(words, "_"))
+            if (user.DoesUserQuit() || phrase.CheckIfEmpty(_words, "_"))
             {
                 programManager.Quit();
             }
@@ -31,9 +31,9 @@ class Program
                 int wordRemoveAmount = user.GetUserNumber();
 
                 currentPhrase = phrase.GetCurrentPhrase();
-                words = wordManager.GetWordsInPhrase(currentPhrase);
+                _words = wordManager.GetWordsInPhrase(currentPhrase);
                 
-                string newPhrase = wordManager.RemoveWords(words, wordRemoveAmount);
+                string newPhrase = wordManager.RemoveWords(_words, wordRemoveAmount);
 
                 programManager.ClearConsole();
 
