@@ -21,6 +21,7 @@ namespace Develop04
                 // DISPLAY random prompt
                 // GET user input
                 // WAIT for timer to exit loop
+            DisplayMessage(GetEndMessage());
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Develop04
     public abstract class Activity
     {
         string _activityName = "";
-        string _startMessage = "";
-        string _endMessage = "";
+        string _startMessage = "start message hahaa\n";
+        string _endMessage = "\n\nend message nono";
 
         double _duration = 5.0;
 
@@ -17,6 +17,8 @@ namespace Develop04
         {
             _activityName = activityName;
             _duration = duration;
+
+            DisplayMessage(_startMessage);
         }
 
         public void DisplayMessage(string message)
@@ -24,26 +26,20 @@ namespace Develop04
             Console.WriteLine(message);
         }
 
-        public void DisplayRandomPrompt(List<string> prompts)
+        public string GetEndMessage()
+        {
+            return _endMessage;
+        }
+
+        public string GetRandomPrompt(List<string> prompts)
         {
             Random random = new Random();
             
             string randomPrompt = prompts[random.Next(prompts.Count)];
+            return randomPrompt;
         }
 
-        public void WaitForTimeout(int durationInSeconds)
-        {
-            DateTime endTime = DateTime.Now.AddSeconds(durationInSeconds);
-
-            while (DateTime.Now < endTime)
-            {
-                Console.Write("$");
-                Thread.Sleep(100);
-            }
-            Console.WriteLine("ba!");
-        }
-
-        public double GetUserDouble()
+        public double GetUserDouble(string prompt)
         {
             double userNumber = 0.0;
 
@@ -51,7 +47,7 @@ namespace Develop04
             {        
                 try
                 {                
-                    Console.Write("give number: ");
+                    Console.Write(prompt);
                     userNumber = double.Parse(Console.ReadLine());
                     break;
                 }
