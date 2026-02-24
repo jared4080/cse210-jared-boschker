@@ -31,9 +31,16 @@ namespace Develop04
             string randomPrompt = prompts[random.Next(prompts.Count)];
         }
 
-        public void WaitUntilFinished(double duration)
+        public void WaitForTimeout(int durationInSeconds)
         {
-            
+            DateTime endTime = DateTime.Now.AddSeconds(durationInSeconds);
+
+            while (DateTime.Now < endTime)
+            {
+                Console.Write("$");
+                Thread.Sleep(100);
+            }
+            Console.WriteLine("ba!");
         }
 
         public double GetUserDouble()

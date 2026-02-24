@@ -17,7 +17,7 @@ namespace Develop04
 
         public override void RunActivity()
         {
-            
+            WaitForTimeout(2);
         }
     }
 }
