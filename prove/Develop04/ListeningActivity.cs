@@ -7,9 +7,6 @@ namespace Develop04
 {    
     public class ListeningActivity : Activity
     {
-        double breathInDuration = 5.0;
-        double breathOutDuration = 5.0;
-
         List<string> prompts = new List<string>
         {
             "think of a time where you wanted to eat",

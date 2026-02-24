@@ -7,9 +7,6 @@ namespace Develop04
 {    
     public class ReflectionActivity : Activity
     {
-        double breathInDuration = 5.0;
-        double breathOutDuration = 5.0;
-
         public ReflectionActivity(string activityName, double duration) : base(activityName, duration)
         {
             
