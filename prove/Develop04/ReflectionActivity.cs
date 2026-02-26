@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
+using System.Xml;
 
 
 namespace Develop04
@@ -15,7 +16,7 @@ namespace Develop04
         };
 
         
-        public ReflectionActivity(string activityName, double duration) : base(activityName, duration)
+        public ReflectionActivity(string activityName) : base(activityName)
         {
             
         }
@@ -23,6 +24,8 @@ namespace Develop04
         public override void RunActivity()
         {   
             double waitDuration = 5.0;
+
+            double sessionDuration = GetDurationToComplete();
 
             Console.WriteLine(GetRandomPrompt(prompts));
 

@@ -8,15 +8,17 @@ namespace Develop04
     public abstract class Activity
     {
         string _activityName = "";
-        string _startMessage = "start message hahaa\n";
-        string _endMessage = "\n\nend message nono";
+        double _durationToComplete = 0.0;
 
-        double _duration = 5.0;
+        string _startMessage = "start message hahaa";
+        string _endMessage = $"\n\nend message nono";
 
-        public Activity (string activityName, double duration)
+        public Activity (string activityName)
         {
+            _durationToComplete = GetUserDouble("how long would you like your session to last in seconds? ");
+           
             _activityName = activityName;
-            _duration = duration;
+            _endMessage = $"\n\n wow!! you did this activity for {_durationToComplete} seconds for this {activityName} thingy";
 
             DisplayMessage(_startMessage);
         }
@@ -29,6 +31,11 @@ namespace Develop04
         public string GetEndMessage()
         {
             return _endMessage;
+        }
+
+        public double GetDurationToComplete()
+        {
+            return _durationToComplete;
         }
 
         public string GetRandomPrompt(List<string> prompts)
@@ -48,7 +55,10 @@ namespace Develop04
                 try
                 {                
                     Console.Write(prompt);
+
                     userNumber = double.Parse(Console.ReadLine());
+                    Console.WriteLine("kk");
+
                     break;
                 }
                 catch (Exception)

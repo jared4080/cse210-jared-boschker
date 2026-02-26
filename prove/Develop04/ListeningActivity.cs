@@ -14,14 +14,14 @@ namespace Develop04
             "I really want ice cream right now :drooling_emoji: what are things you are craving?"
         };
 
-        public ListeningActivity(string activityName, double duration) : base(activityName, duration)
+        public ListeningActivity(string activityName) : base(activityName)
         {
             
         }
 
         public override void RunActivity()
         {
-            double sessionDuration = GetUserDouble("how long you want your session to be in seconds? ");
+            double sessionDuration = GetDurationToComplete();
 
             Console.WriteLine("\nhit enter when you think of something");
             Console.WriteLine(GetRandomPrompt(prompts));
@@ -37,8 +37,6 @@ namespace Develop04
                 Console.Write("-");
                 Console.ReadLine();
             }
-
-            Console.WriteLine("kk");
 
             DisplayMessage(GetEndMessage());
         }

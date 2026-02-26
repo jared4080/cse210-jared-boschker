@@ -9,15 +9,14 @@ namespace Develop04
     {
         double breathDuration = 5.0;
 
-        public BreathingActivity(string activityName, double duration) : base(activityName, duration)
+        public BreathingActivity(string activityName) : base(activityName)
         {
             
         }
 
         public override void RunActivity()
         {
-            double activityDuration = GetUserDouble("how many seconds do you wanna do breathing stuff for? ");
-            Console.WriteLine("okay bet");
+            double activityDuration = GetDurationToComplete();
 
             DateTime endTime = DateTime.Now.AddSeconds(activityDuration);
 
@@ -33,7 +32,7 @@ namespace Develop04
                 Timer breathOutTimer = new Timer(breathDuration);
                 Console.WriteLine("\nBREATH OUT!!");
                 breathOutTimer.WaitForTimeout();
-                
+
                 Console.WriteLine();
             }
 
