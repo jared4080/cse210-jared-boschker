@@ -24,13 +24,13 @@ namespace Develop04
             _targetTime = DateTime.Now.AddSeconds(time);
         }
 
-        public void WaitForTimeout(string message="")
+        public void WaitForTimeout(double duration=5.0)
         {
-            if (message != "") Console.WriteLine("\n", message);
-
             int i = 0;
 
-            while (DateTime.Now < _targetTime)
+            DateTime timeoutTargetTime = DateTime.Now.AddSeconds(duration);
+
+            while (DateTime.Now < timeoutTargetTime)
             {
                 i++;
                 if (i > 3)
@@ -46,6 +46,7 @@ namespace Develop04
                 }
                 Thread.Sleep(500);
             }
+            Console.WriteLine();
         }
     }
 }

@@ -27,10 +27,14 @@ namespace Develop04
             {
 
                 Timer breathInTimer = new Timer(breathDuration);
-                breathInTimer.WaitForTimeout("BREATH IN!!!");
+                Console.WriteLine("\nBREATH IN!!");
+                breathInTimer.WaitForTimeout();
 
                 Timer breathOutTimer = new Timer(breathDuration);
-                breathOutTimer.WaitForTimeout("BREATH OUT!!!");
+                Console.WriteLine("\nBREATH OUT!!");
+                breathOutTimer.WaitForTimeout();
+                
+                Console.WriteLine();
             }
 
             DisplayMessage(GetEndMessage());
