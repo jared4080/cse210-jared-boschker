@@ -9,9 +9,9 @@ namespace Develop04
     {
         List<string> prompts = new List<string>
         {
-            "think of a time where you wanted to eat",
-            "what are some things in life that make you mad?",
-            "what are the craziest times you've gotten sick?"
+            "why are you feeling how you are right now?",
+            "look at the people around you, and guess their names",
+            "I really want ice cream right now :drooling_emoji: what are things you are craving?"
         };
 
         public ListeningActivity(string activityName, double duration) : base(activityName, duration)
@@ -21,12 +21,25 @@ namespace Develop04
 
         public override void RunActivity()
         {
-            GetUserDouble("hah");
-            Console.WriteLine(GetRandomPrompt(prompts));
+            double sessionDuration = GetUserDouble("how long you want your session to be in seconds? ");
+
             Console.WriteLine("\nhit enter when you think of something");
-            Console.ReadLine();
-            // STARTS countdown
-            // PROMPT for entries
+            Console.WriteLine(GetRandomPrompt(prompts));
+
+            Console.WriteLine("get ready!!!!!!!!");
+            Timer beginTimer = new Timer(3.0);
+            beginTimer.WaitForTimeout();
+
+            Timer sessionTimer = new Timer(sessionDuration);
+
+            while (!sessionTimer.IsFinished())
+            {
+                Console.Write("-");
+                Console.ReadLine();
+            }
+
+            Console.WriteLine("kk");
+
             DisplayMessage(GetEndMessage());
         }
     }

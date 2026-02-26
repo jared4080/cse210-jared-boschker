@@ -9,11 +9,11 @@ namespace Develop04
             // BreathingActivity breathingActivity = new BreathingActivity("breath", 5.0);
             // breathingActivity.RunActivity();
 
-            ReflectionActivity reflectionActivity = new ReflectionActivity("reflect", 5.0);
-            reflectionActivity.RunActivity();
+            // ReflectionActivity reflectionActivity = new ReflectionActivity("reflect", 5.0);
+            // reflectionActivity.RunActivity();
 
-            // ListeningActivity listeningActivity = new ListeningActivity("listen", 5.0);
-            // listeningActivity.RunActivity();
+            ListeningActivity listeningActivity = new ListeningActivity("listen", 5.0);
+            listeningActivity.RunActivity();
 
             
         }
