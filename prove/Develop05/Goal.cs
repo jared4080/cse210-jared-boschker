@@ -9,7 +9,7 @@ namespace Develop05
         string _description;
 
         int _pointsAmount = 0;
-        bool _isComplete = false;
+        bool _isCompleted = false;
 
         public Goal()
         {
@@ -25,12 +25,24 @@ namespace Develop05
                 {
                     Console.WriteLine("how many points should the goal give?");
                     _pointsAmount = Int32.Parse(Console.ReadLine());
+                    
+                    break;
                 }
                 catch
                 {
                     Console.WriteLine("whole number please...");
                 }
             }
+        }
+
+        public void SetCompleted()
+        {
+            _isCompleted = true;
+        }
+
+        public bool GetIsCompleted()
+        {
+            return _isCompleted;
         }
 
         public int GetPointsAmount()
