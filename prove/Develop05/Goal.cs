@@ -13,24 +13,24 @@ namespace Develop05
 
         public Goal()
         {
-            Console.WriteLine("what is the name of the goal?");
+            Console.Write("what is the name of the goal? ");
             _name = Console.ReadLine();
 
-            Console.WriteLine("write a description of the goal");
+            Console.Write("write a description for the goal: ");
             _description = Console.ReadLine();
 
             while (true)
             {           
                 try
                 {
-                    Console.WriteLine("how many points should the goal give?");
+                    Console.Write("how many points should the goal give? ");
                     _pointsAmount = Int32.Parse(Console.ReadLine());
                     
                     break;
                 }
                 catch
                 {
-                    Console.WriteLine("whole number please...");
+                    Console.WriteLine("input a whole number...");
                 }
             }
         }

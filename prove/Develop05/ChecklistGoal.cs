@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Develop05
 {
-    public abstract class ChecklistGoal : Goal
+    public class ChecklistGoal : Goal
     {
         bool _hasCompletedOnce = false;
 
@@ -18,13 +18,13 @@ namespace Develop05
         public ChecklistGoal() : base()
         {
             while (true)
-            {                
+            {
                 try
                 {
-                    Console.WriteLine("how many times would you need to complete this goal for bonus points? ");
+                    Console.Write("how many times would you need to complete this goal for bonus points? ");
                     _checkAmount = Int32.Parse(Console.ReadLine());
 
-                    Console.WriteLine("how many bonus points will you gain after completing the bonus goal?");
+                    Console.Write("how many bonus points will you gain after completing the bonus goal? ");
                     _bonusPointsAmount = Int32.Parse(Console.ReadLine());
 
                     break;
