@@ -1,6 +1,4 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
 
 namespace Develop05
 {
@@ -52,13 +50,20 @@ namespace Develop05
             Console.WriteLine("okay, here are all the goals!!");
             foreach (Goal goal in goals)
             {
-                Console.WriteLine(goal);
+                Console.WriteLine(goal.GetGoalInfo());
             }
         }
 
-        public void RecordEvent()
+        public int RecordEvent()
         {
-            
+            ListGoals();
+
+            Console.Write("which goal would you like to complete? ");
+            int goalToComplete = Int32.Parse(Console.ReadLine());
+
+            Goal selectedGoal = goals[goalToComplete];
+
+            return selectedGoal.GetPointsAmount(); 
         }
     }
 }

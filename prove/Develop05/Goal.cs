@@ -35,6 +35,11 @@ namespace Develop05
             }
         }
 
+        public string GetGoalInfo()
+        {
+            return $"{_name} {_description}";
+        }
+
         public void SetCompleted()
         {
             _isCompleted = true;
