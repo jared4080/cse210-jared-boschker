@@ -10,6 +10,7 @@ namespace Develop05
 
         int _pointsAmount = 0;
         bool _isCompleted = false;
+        bool _isBadGoal = false;
 
         public Goal()
         {
@@ -19,11 +20,19 @@ namespace Develop05
             Console.Write("write a description for the goal: ");
             _description = Console.ReadLine();
 
+            Console.Write("is this a bad goal? y/n: ");
+            string badGoalInputCheck = Console.ReadLine();
+
+            if (badGoalInputCheck == "y")
+            {
+                _isBadGoal = true;
+            }
+
             while (true)
             {           
                 try
                 {
-                    Console.Write("how many points should the goal give? ");
+                    Console.Write("how many points should the goal give or remove? ");
                     _pointsAmount = Int32.Parse(Console.ReadLine());
                     
                     break;
@@ -32,6 +41,11 @@ namespace Develop05
                 {
                     Console.WriteLine("input a whole number...");
                 }
+            }
+
+            if (_isBadGoal)
+            {
+                _pointsAmount = -_pointsAmount;
             }
         }
 
