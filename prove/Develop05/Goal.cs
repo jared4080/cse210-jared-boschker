@@ -51,7 +51,7 @@ namespace Develop05
 
         public string GetGoalInfo()
         {
-            return $"{_name} {_description}";
+            return $"{_name} {_description} {_pointsAmount} {_isCompleted} {_isBadGoal}";
         }
 
         public void SetCompleted()
@@ -69,6 +69,6 @@ namespace Develop05
             return _pointsAmount;
         }
 
-        public abstract void Complete();
+        public abstract int Complete();
     }
 }

@@ -14,7 +14,7 @@ namespace Develop05
             GoalManager goalManager = new GoalManager();
 
             while (!_hasQuit)
-            {            
+            {
                 Console.WriteLine("\nlook at all the activities!");
                 Console.WriteLine("(1) create new goal\n(2) list goals\n(3) save goals\n(4) load goals\n(5) record event\n(6) quit");
                 Console.Write("\nwhat would you like to do? ");

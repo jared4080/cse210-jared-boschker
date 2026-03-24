@@ -9,12 +9,49 @@ namespace Develop05
 
         public void SaveGoals()
         {
-            
+            Console.Write("what would you like to name the save file? ");
+            string saveFile = Console.ReadLine();
+
+            using (StreamWriter writer = new StreamWriter(saveFile))
+            {
+                foreach (Goal goal in goals)
+                    writer.WriteLine(goal.GetGoalInfo());
+            }
+
+            Console.WriteLine($"saved {goals.Count} goals to {saveFile}");
         }
 
         public void LoadGoals()
         {
-            
+            Console.Write("where would you like to load your entries from?");
+            string fileName = Console.ReadLine();
+
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine(fileName);
+                return;
+            }
+
+            goals.Clear();
+
+            foreach (string line in File.ReadAllLines(fileName))
+            {
+                string[] parts = line.Split(" ");
+                switch (parts[0])
+                {
+                    case "SimpleGoal":
+                        goals.Add(new SimpleGoal());
+                        break;
+                    case "EternalGoal":
+                        goals.Add(new EternalGoal());
+                        break;
+                    case "ChecklistGoal":
+                        goals.Add(new ChecklistGoal());
+                        break;
+                }
+            }
+
+            Console.WriteLine($"loaded {goals.Count} goals");
         }
 
         public void CreateGoal()
