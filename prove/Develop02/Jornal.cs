@@ -47,7 +47,6 @@ namespace Develop02
             else Console.WriteLine("folder doesn't exist");
             
             Console.WriteLine($"saved {JournalData.entries.Count} entries to the {filePath} file");
-
         }
 
         public void CreateTextFile()

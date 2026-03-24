@@ -36,19 +36,23 @@ namespace Develop05
             }
         }
 
-        public override void Complete()
+        public override int Complete()
         {
             if (!_hasCompletedOnce)
             {
                 _hasCompletedOnce = true;
+                return GetPointsAmount();
             }
 
             if (_timesCompleted >= _checkAmount && !_hasReceivedBonus)
             {
-                // ADD bonus points to points
                 _hasReceivedBonus = true;
                 SetCompleted();
+                
+                return _bonusPointsAmount;
             }
+            
+            return 0;
         }
     }
 }
