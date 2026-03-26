@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace Develop05
 {
@@ -85,9 +86,9 @@ namespace Develop05
         public void ListGoals()
         {
             Console.WriteLine("okay, here are all the goals!!");
-            foreach (Goal goal in goals)
+            for (int i = 0; i < goals.Count; i++)
             {
-                Console.WriteLine(goal.GetGoalInfo());
+                Console.WriteLine($"({i + 1}) {goals[i].GetGoalInfo()}");
             }
         }
 
@@ -95,12 +96,28 @@ namespace Develop05
         {
             ListGoals();
 
-            Console.Write("which goal would you like to complete? ");
-            int goalToComplete = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("what goal would you like to complete? ");
+            int goalIndex = Int32.Parse(Console.ReadLine()) - 1;
 
-            Goal selectedGoal = goals[goalToComplete];
+            if (goalIndex < 0 || goalIndex >= goals.Count)
+            {
+                Console.WriteLine("invalid goal number");
+                return 0;
+            }
 
-            return selectedGoal.GetPointsAmount(); 
+            Goal selectedGoal = goals[goalIndex];
+            
+
+            if (!selectedGoal.GetIsCompleted()){
+                selectedGoal.SetCompleted();
+                return selectedGoal.Complete();
+            }
+            else
+            {
+                Console.WriteLine("goal has already been completed");
+                return 0;
+            }
+
         }
     }
 }

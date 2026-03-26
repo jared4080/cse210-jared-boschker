@@ -5,13 +5,9 @@ namespace Develop05
 {
     public class SimpleGoal : Goal
     {
-        
-
-
-
-        public override void Complete()
+        public override int Complete()
         {
-            
+            return GetPointsAmount();
         }
     }
 }
