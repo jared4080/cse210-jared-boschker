@@ -117,7 +117,6 @@ namespace Develop05
                 Console.WriteLine("goal has already been completed");
                 return 0;
             }
-
         }
     }
 }
