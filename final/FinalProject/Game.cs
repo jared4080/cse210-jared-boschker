@@ -29,7 +29,7 @@ namespace FinalProject
             {
                 playerBetAmount = Int32.Parse(Console.ReadLine());
 
-                if (playerBetAmount <= minBetAmount)
+                if (playerBetAmount < minBetAmount)
                 {
                     Console.WriteLine("not enough money bub");
                     ExitGame();
@@ -39,18 +39,11 @@ namespace FinalProject
             {
                 Console.WriteLine("bruh, we only accept real moneies like 3 monies or something");
             }
-            
-
-            if (playerBetAmount <= minBetAmount)
-            {
-                Console.WriteLine("not enough money bub");
-                ExitGame();
-            }
         }
 
         public void ExitGame()
         {
-            
+            Console.WriteLine("ok, we done gambling on this one");
         }
 
         public void DisplayMessage(string message)

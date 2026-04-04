@@ -5,15 +5,17 @@ namespace FinalProject
 {    
     class Program
     {
-                
         static void Main(string[] args)
         {
+            Player player = new Player();
+            player.GetMoneyAmount();
+
             bool _hasQuit = false;
             
             while (!_hasQuit)
             {
                 Console.WriteLine("\ntime to gamble!! :D");
-                Console.WriteLine("(1) baccrat\n(2) black jack\n(3) 3 card poker\n(4) craps\n(5) roulette\n(6) quit");
+                Console.WriteLine("(1) baccrat\n(2) black jack\n(3) 3 card poker\n(4) roulette\n(5) quit");
                 Console.Write("\nwhich one? ");
                 string userChoice = Console.ReadLine();
                 
@@ -34,14 +36,10 @@ namespace FinalProject
                         cardPoker.Start();
                         break;
                     case "4":
-                        Craps craps = new Craps();
-                        craps.Start();
-                        break;
-                    case "5":
                         Roulette roulette = new Roulette();
                         roulette.Start();
                         break;
-                    case "6":
+                    case "5":
                         _hasQuit = true;
                         Console.WriteLine("you left the casino :(");
                         break;

@@ -3,9 +3,9 @@ using System;
 
 namespace FinalProject
 {    
-    class Player
+    public class Player
     {
-        int moneyAmount;
+        int moneyAmount = 1;
         string name;
 
 
@@ -14,6 +14,11 @@ namespace FinalProject
             Console.WriteLine("what's ur name?");
             name = Console.ReadLine();
             Console.WriteLine($"\nhi {name}, welcome to jared's casino!! :D");
+        }
+
+        public int GetMoneyAmount()
+        {
+            return moneyAmount;
         }
     }
 }
