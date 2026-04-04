@@ -1,68 +1,130 @@
 using System;
-using System.Formats.Asn1;
 
 
 namespace FinalProject
 {    
     public class BlackJack : Game
     {
-        double chancesForBJ = 4.8;
-        double currentNumber = 0;
-        double dealerNumber = 0;
+        double playerValue = 0;
+        double dealerValue = 0;
 
-        bool hasDealerStood = false;
+        bool playerHasStood = false;
+        bool dealerHasStood = false;
+
+        Random random = new Random();
+
 
         public override void Start()
         {
+            InitializeCards();
+
             while (true)
             {
-                currentNumber += DrawCard();
-                currentNumber += DrawCard();
-                Console.WriteLine($"you currently have {currentNumber}");
-                
-                Console.WriteLine($"hit? (y/n): ");
-                string answer = Console.ReadLine();
+                if (!playerHasStood)
+                {
+                    PlayerDraw();
+                }
 
-                if (answer == "y")
+                if (playerValue > 21)
                 {
-                    currentNumber += DrawCard();
+                    break;
                 }
-                else
+
+                if (!DealerHasStood())
                 {
-                    if (currentNumber > 21)
-                    {
-                        Console.WriteLine($"uh oh, you went {currentNumber - 21} over and lost your monies");
-                    }
-                    else
-                    {
-                        Console.WriteLine("");
-                    }
+                    DealerDraw();
                 }
+
+                if (dealerValue > 21)
+                {
+                    break;
+                }
+
+                if (playerHasStood && dealerHasStood)
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine($"\nthe dealer has {dealerValue}, and you have {playerValue}");
+
+            if (playerValue > 21)
+            {
+                Console.WriteLine("you lost");
+            }
+            else if (dealerValue > 21)
+            {
+                Console.WriteLine("dealer lost");
+            }
+            else if (playerValue > dealerValue)
+            {
+                Console.WriteLine("you win");
+            }
+            else
+            {
+                Console.WriteLine("no one won");
             }
         }
 
-        public void Dealer()
+        public void InitializeCards()
         {
-            dealerNumber += DrawCard();
-            dealerNumber += DrawCard();
+            dealerValue += DrawCard();
 
-            if (dealerNumber < 9)
-            {
-                dealerNumber += DrawCard();
-            }
+            int visibleCard = DrawCard();
+            dealerValue += visibleCard;
+
+            playerValue += DrawCard();
+            int playerVisibleCard = DrawCard();
+            playerValue += playerVisibleCard;
+            ShowPlayerAmount();
+
+            Console.WriteLine($"the dealers face up card is {visibleCard}");
+            Console.WriteLine($"\nyou showed the dealer your {visibleCard}");
         }
 
         public bool DealerHasStood()
         {
-            
+            return dealerHasStood;
         }
 
-        
+        public void PlayerDraw()
+        {
+            Console.WriteLine($"hit? (y/n): ");
+            string answer = Console.ReadLine();
+
+            if (answer == "y")
+            {
+                playerValue += DrawCard();
+                ShowPlayerAmount();
+            }
+            else
+            {
+                playerHasStood = true;
+            }
+        }
+
+        public void ShowPlayerAmount()
+        {
+            Console.WriteLine($"you currently have {playerValue}");
+        }
+
+        public void DealerDraw()
+        {
+            if (dealerValue < 17)
+            {
+                dealerValue += DrawCard();
+                Console.WriteLine("the dealer hit");
+            }
+            else
+            {
+                dealerHasStood = true;
+                Console.WriteLine("the dealer has stood");
+            }
+        }
 
         public int DrawCard()
         {
-            Random random = new Random();
-            int cardDrawn = random.Next(1, 10);
+            int cardDrawn = random.Next(1, 11);
 
             return cardDrawn;
         }
