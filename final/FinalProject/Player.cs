@@ -5,20 +5,31 @@ namespace FinalProject
 {    
     public class Player
     {
-        int moneyAmount = 10;
-        string name;
+        int _moneyAmount = 10;
+        string _name;
 
 
         public Player()
         {
             Console.Write("what's ur name? ");
-            name = Console.ReadLine();
-            Console.WriteLine($"\nhey {name}! welcome to jared's casino");
+            _name = Console.ReadLine();
+            Console.WriteLine($"\nhey {_name}! welcome to jared's casino");
+        }
+
+        public void ChangeCurrency(int moneyAmount)
+        {
+            _moneyAmount += moneyAmount;
+            Console.WriteLine($"now you have ${_moneyAmount}");
+        }
+
+        public int GetCurrency()
+        {
+            return _moneyAmount;
         }
 
         public int GetMoneyAmount()
         {
-            return moneyAmount;
+            return _moneyAmount;
         }
     }
 }

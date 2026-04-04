@@ -11,7 +11,6 @@ namespace FinalProject
             player.GetMoneyAmount();
 
             Timer timer = new Timer(3);
-            timer.WaitForTimeout(3);
 
             bool _hasQuit = false;
             
@@ -23,6 +22,8 @@ namespace FinalProject
                 string userChoice = Console.ReadLine();
                 
                 Console.WriteLine("");
+
+                Console.WriteLine($"you have ${player.GetCurrency()}");
 
 
                 switch (userChoice)
