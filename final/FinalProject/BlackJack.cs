@@ -59,22 +59,22 @@ namespace FinalProject
             if (playerValue > 21)
             {
                 Console.WriteLine($"you went over with {playerValue} and the dealer gets to take ur bet");
-                ChangeCurrency(GetPlayerBetAmount());
+                PlayerLose(GetPlayerBetAmount());
             }
             else if (dealerValue > 21)
             {
                 Console.WriteLine($"the dealer went over with {dealerValue} and you got all his money from the bet :P");
-                ChangeCurrency(GetNPCBetAmount());
+                PlayerWin(GetNPCBetAmount());
             }
             else if (playerValue > dealerValue)
             {
                 Console.WriteLine("HAH u win! in ur face dealer!!");
-                ChangeCurrency(GetNPCBetAmount());
+                PlayerWin(GetNPCBetAmount());
             }
             else if (dealerValue > playerValue)
             {
                 Console.WriteLine("uh oh, the dealer won and took all the money you bet!!");
-                ChangeCurrency(GetNPCBetAmount());
+                PlayerLose(GetPlayerBetAmount());
             }
             else
             {

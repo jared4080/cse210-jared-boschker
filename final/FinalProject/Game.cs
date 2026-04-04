@@ -71,16 +71,14 @@ namespace FinalProject
             Console.WriteLine("ok, we done gambling on this one");
         }
 
-        public void ChangeCurrency(int amount, bool hasWon=true)
+        public void PlayerWin(int amount)
         {
-            if (hasWon)
-            {
-                _player.ChangeCurrency(npcBetAmount);
-            }
-            else
-            {
-                _player.ChangeCurrency(-playerBetAmount);
-            }
+            _player.ChangeCurrency(npcBetAmount);
+        }
+
+        public void PlayerLose(int amount)
+        {
+            _player.ChangeCurrency(-playerBetAmount);
         }
 
         public int GetNPCBetAmount()
