@@ -5,19 +5,14 @@ namespace FinalProject
 {    
     public abstract class Game
     {
-        static void Main(string[] args)
-        {
-            
-        }
+        int currencyToStart = 0;
+        int minBetAmount = 0;
+        int playerBetAmount = 0;
+        int numberOfGamblers = 2;
 
-        int currencyToStart;
-        int minBetAmount;
-        int playerBetAmount;
-        int numberOfGamblers;
+        string startMessage = "hi";
 
-        string startMessage;
-
-        double chancesOfWinning;
+        double chancesOfWinning = 0.5;
 
 
         public int GetCurrencyToStart()
@@ -27,7 +22,30 @@ namespace FinalProject
 
         public void PlaceBet()
         {
+            Console.WriteLine($"you gotta have at least {minBetAmount} to gamble on this one");
+            Console.WriteLine("\nhow much u betting? ");
             
+            try
+            {
+                playerBetAmount = Int32.Parse(Console.ReadLine());
+
+                if (playerBetAmount <= minBetAmount)
+                {
+                    Console.WriteLine("not enough money bub");
+                    ExitGame();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("bruh, we only accept real moneies like 3 monies or something");
+            }
+            
+
+            if (playerBetAmount <= minBetAmount)
+            {
+                Console.WriteLine("not enough money bub");
+                ExitGame();
+            }
         }
 
         public void ExitGame()
