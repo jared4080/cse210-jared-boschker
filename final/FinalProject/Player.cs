@@ -5,15 +5,15 @@ namespace FinalProject
 {    
     public class Player
     {
-        int moneyAmount = 1;
+        int moneyAmount = 10;
         string name;
 
 
         public Player()
         {
-            Console.WriteLine("what's ur name?");
+            Console.Write("what's ur name? ");
             name = Console.ReadLine();
-            Console.WriteLine($"\nhi {name}, welcome to jared's casino!! :D");
+            Console.WriteLine($"\nhey {name}! welcome to jared's casino");
         }
 
         public int GetMoneyAmount()

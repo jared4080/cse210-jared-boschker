@@ -8,11 +8,12 @@ namespace FinalProject
         int currencyToStart = 0;
         int minBetAmount = 0;
         int playerBetAmount = 0;
-        int numberOfGamblers = 2;
 
-        string startMessage = "hi";
 
-        double chancesOfWinning = 0.5;
+        public Game(Player player)
+        {
+            PlaceBet(player.GetMoneyAmount());
+        }
 
 
         public int GetCurrencyToStart()
@@ -20,19 +21,24 @@ namespace FinalProject
             return currencyToStart;
         }
 
-        public void PlaceBet()
+        public void PlaceBet(int playerCurrency)
         {
             Console.WriteLine($"you gotta have at least {minBetAmount} to gamble on this one");
-            Console.WriteLine("\nhow much u betting? ");
+            Console.Write("\nhow much u betting? ");
             
             try
             {
                 playerBetAmount = Int32.Parse(Console.ReadLine());
 
-                if (playerBetAmount < minBetAmount)
+                if (playerBetAmount < minBetAmount || playerCurrency < playerBetAmount)
                 {
-                    Console.WriteLine("not enough money bub");
+                    Console.WriteLine("\nnot enough money bub");
                     ExitGame();
+                }
+                else
+                {
+                    Console.WriteLine("alright");
+                    Start();
                 }
             }
             catch

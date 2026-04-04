@@ -10,6 +10,9 @@ namespace FinalProject
             Player player = new Player();
             player.GetMoneyAmount();
 
+            Timer timer = new Timer(3);
+            timer.WaitForTimeout(3);
+
             bool _hasQuit = false;
             
             while (!_hasQuit)
@@ -21,23 +24,24 @@ namespace FinalProject
                 
                 Console.WriteLine("");
 
+
                 switch (userChoice)
                 {
                     case "1":
-                        Baccarat baccarat = new Baccarat();
-                        baccarat.Start();
+                        Baccarat baccarat = new Baccarat(player);
+                        timer.WaitForTimeout(3);
                         break;
                     case "2":
-                        BlackJack blackJack = new BlackJack();
-                        blackJack.Start();
+                        BlackJack blackJack = new BlackJack(player);
+                        timer.WaitForTimeout(3);
                         break;
                     case "3":
-                        CardPoker cardPoker = new CardPoker();
-                        cardPoker.Start();
+                        CardPoker cardPoker = new CardPoker(player);
+                        timer.WaitForTimeout(3);
                         break;
                     case "4":
-                        Roulette roulette = new Roulette();
-                        roulette.Start();
+                        Roulette roulette = new Roulette(player);
+                        timer.WaitForTimeout(3);
                         break;
                     case "5":
                         _hasQuit = true;
