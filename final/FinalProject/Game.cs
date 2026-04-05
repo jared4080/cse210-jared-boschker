@@ -59,7 +59,7 @@ namespace FinalProject
                 }
                 catch
                 {
-                    Console.WriteLine("bruh, we only accept real moneies like 3 monies or something");
+                    Console.WriteLine("bruh, we only accept real monies");
                 }
             }
 
