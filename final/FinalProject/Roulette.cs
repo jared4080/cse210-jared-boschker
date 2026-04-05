@@ -5,11 +5,11 @@ namespace FinalProject
 {    
     public class Roulette : Game
     {
-        bool hasBetOnBlack = true;
+        bool _hasBetOnBlack = true;
 
         public Roulette(Player player) : base(player)
         {
-            SetAmountToStart(100);
+            SetAmountToStart(50);
         }
 
         public override void Start()
@@ -22,11 +22,11 @@ namespace FinalProject
 
             if (playerBet == "b")
             {
-                hasBetOnBlack = true;
+                _hasBetOnBlack = true;
             }
             else
             {
-                hasBetOnBlack = false;
+                _hasBetOnBlack = false;
             }
 
             Console.WriteLine("hit enter to spin the wheel");
@@ -38,22 +38,22 @@ namespace FinalProject
 
             int redOrBlack = random.Next(0, 1);
 
-            if (hasBetOnBlack && redOrBlack == 1)
+            if (_hasBetOnBlack && redOrBlack == 1)
             {
                 Console.WriteLine("yay, it landed on black!!");
                 PlayerWin(GetNPCBetAmount());
             }
-            else if (!hasBetOnBlack && redOrBlack == 0)
+            else if (!_hasBetOnBlack && redOrBlack == 0)
             {
                 Console.WriteLine("yay, it landed on red!!");
                 PlayerWin(GetNPCBetAmount());
             }
-            else if (!hasBetOnBlack && redOrBlack == 1)
+            else if (!_hasBetOnBlack && redOrBlack == 1)
             {
                 Console.WriteLine("it landed on black... you should've bet on black");
                 PlayerLose(GetPlayerBetAmount());
             }
-            else if (hasBetOnBlack && redOrBlack == 0)
+            else if (_hasBetOnBlack && redOrBlack == 0)
             {
                 Console.WriteLine("brooo why did it land on red??");
                 PlayerLose(GetPlayerBetAmount());

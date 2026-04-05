@@ -5,14 +5,14 @@ namespace FinalProject
 {    
     public class BlackJack : Game
     {
-        double playerValue = 0;
-        double dealerValue = 0;
+        double _playerValue = 0;
+        double _dealerValue = 0;
 
-        bool playerHasStood = false;
-        bool dealerHasStood = false;
+        bool _playerHasStood = false;
+        bool _dealerHasStood = false;
 
-        Random random = new Random();
-        Timer timer = new Timer(5);
+        Random _random = new Random();
+        Timer _timer = new Timer(5);
 
         public BlackJack(Player player) : base(player)
         {
@@ -26,12 +26,12 @@ namespace FinalProject
 
             while (true)
             {
-                if (!playerHasStood)
+                if (!_playerHasStood)
                 {
                     PlayerDraw();
                 }
 
-                if (playerValue > 21)
+                if (_playerValue > 21)
                 {
                     break;
                 }
@@ -41,37 +41,37 @@ namespace FinalProject
                     DealerDraw();
                 }
 
-                if (dealerValue > 21)
+                if (_dealerValue > 21)
                 {
                     break;
                 }
 
-                if (playerHasStood && dealerHasStood)
+                if (_playerHasStood && _dealerHasStood)
                 {
                     break;
                 }
             }
 
-            timer.WaitForTimeout(3);
+            _timer.WaitForTimeout(3);
 
-            Console.WriteLine($"the dealer lays down {dealerValue}");
+            Console.WriteLine($"the dealer lays down {_dealerValue}");
 
-            if (playerValue > 21)
+            if (_playerValue > 21)
             {
-                Console.WriteLine($"you went over with {playerValue} and the dealer gets to take ur bet");
+                Console.WriteLine($"you went over with {_playerValue} and the dealer gets to take ur bet");
                 PlayerLose(GetPlayerBetAmount());
             }
-            else if (dealerValue > 21)
+            else if (_dealerValue > 21)
             {
-                Console.WriteLine($"the dealer went over with {dealerValue} and you got all his money from the bet :P");
+                Console.WriteLine($"the dealer went over with {_dealerValue} and you got all his money from the bet :P");
                 PlayerWin(GetNPCBetAmount());
             }
-            else if (playerValue > dealerValue)
+            else if (_playerValue > _dealerValue)
             {
                 Console.WriteLine("HAH u win! in ur face dealer!!");
                 PlayerWin(GetNPCBetAmount());
             }
-            else if (dealerValue > playerValue)
+            else if (_dealerValue > _playerValue)
             {
                 Console.WriteLine("uh oh, the dealer won and took all the money you bet!!");
                 PlayerLose(GetPlayerBetAmount());
@@ -84,18 +84,18 @@ namespace FinalProject
 
         public void InitializeCards()
         {
-            timer.WaitForTimeout(5, "the dealer is dealing");
+            _timer.WaitForTimeout(5, "the dealer is dealing");
 
-            dealerValue += DrawCard();
+            _dealerValue += DrawCard();
             int visibleCard = DrawCard();
-            dealerValue += visibleCard;
+            _dealerValue += visibleCard;
 
-            playerValue += DrawCard();
+            _playerValue += DrawCard();
             int playerVisibleCard = DrawCard();
-            playerValue += playerVisibleCard;
+            _playerValue += playerVisibleCard;
             ShowPlayerAmount();
 
-            timer.WaitForTimeout(3);
+            _timer.WaitForTimeout(3);
             Console.WriteLine($"\nthe dealers face up card is {visibleCard}");
 
             Console.WriteLine($"hit enter to show the dealer ur card");
@@ -105,7 +105,7 @@ namespace FinalProject
 
         public bool DealerHasStood()
         {
-            return dealerHasStood;
+            return _dealerHasStood;
         }
 
         public void PlayerDraw()
@@ -115,38 +115,38 @@ namespace FinalProject
 
             if (answer == "y")
             {
-                playerValue += DrawCard();
+                _playerValue += DrawCard();
                 ShowPlayerAmount();
             }
             else
             {
-                playerHasStood = true;
+                _playerHasStood = true;
             }
         }
 
         public void ShowPlayerAmount()
         {
-            Console.WriteLine($"you currently have {playerValue}");
+            Console.WriteLine($"you currently have {_playerValue}");
         }
 
         public void DealerDraw()
         {
-            timer.WaitForTimeout(3, "");
-            if (dealerValue < 17)
+            _timer.WaitForTimeout(3, "");
+            if (_dealerValue < 17)
             {
-                dealerValue += DrawCard();
+                _dealerValue += DrawCard();
                 Console.WriteLine("the dealer hit");
             }
             else
             {
-                dealerHasStood = true;
+                _dealerHasStood = true;
                 Console.WriteLine("the dealer stands");
             }
         }
 
         public int DrawCard()
         {
-            int cardDrawn = random.Next(1, 11);
+            int cardDrawn = _random.Next(1, 11);
 
             return cardDrawn;
         }

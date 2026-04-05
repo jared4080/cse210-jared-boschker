@@ -7,8 +7,8 @@ namespace FinalProject
     {
         static void Main(string[] args)
         {
-            Player player = new Player();
-            player.GetMoneyAmount();
+            Player _player = new Player();
+            _player.GetMoneyAmount();
 
             Timer timer = new Timer(3);
 
@@ -23,25 +23,25 @@ namespace FinalProject
                 
                 Console.WriteLine("");
 
-                Console.WriteLine($"you have ${player.GetCurrency()}");
+                Console.WriteLine($"you have ${_player.GetCurrency()}");
 
 
                 switch (userChoice)
                 {
                     case "1":
-                        SeekMoney seekMoney = new SeekMoney(player);
+                        SeekMoney seekMoney = new SeekMoney(_player);
                         timer.WaitForTimeout(2);
                         break;
                     case "2":
-                        BlackJack blackJack = new BlackJack(player);
+                        BlackJack blackJack = new BlackJack(_player);
                         timer.WaitForTimeout(2);
                         break;
                     case "3":
-                        Roulette roulette = new Roulette(player);
+                        Roulette roulette = new Roulette(_player);
                         timer.WaitForTimeout(2);
                         break;
                     case "4":
-                        KingJared kingJared = new KingJared(player);
+                        KingJared kingJared = new KingJared(_player);
                         timer.WaitForTimeout(2);
                         break;
                     case "5":
