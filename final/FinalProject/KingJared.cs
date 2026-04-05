@@ -9,7 +9,7 @@ namespace FinalProject
         Timer _timer = new Timer(3);
 
 
-        public KingJared(Player player) : base(player)
+        public KingJared(Player player, int amountToStart) : base(player, amountToStart)
         {
             SetAmountToStart(100);
         }

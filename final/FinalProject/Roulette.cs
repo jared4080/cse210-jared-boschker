@@ -7,7 +7,7 @@ namespace FinalProject
     {
         bool _hasBetOnBlack = true;
 
-        public Roulette(Player player) : base(player)
+        public Roulette(Player player, int amountToStart) : base(player, amountToStart)
         {
             SetAmountToStart(50);
         }

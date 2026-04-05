@@ -15,9 +15,11 @@ namespace FinalProject
         Player _player;
 
 
-        public Game(Player player, bool isBet=true)
+        public Game(Player player, int amountToStart, bool isBet=true)
         {
             _player = player;
+
+            SetAmountToStart(amountToStart);
 
             if (_player.GetMoneyAmount() >= _currencyToStart)
             {                
@@ -45,6 +47,7 @@ namespace FinalProject
 
         public void PlaceBet(int playerCurrency)
         {
+            Console.WriteLine($"you need to be able to bet at least ${_minBetAmount}");
             Console.Write("\nhow much u betting? ");
             
             while (true)

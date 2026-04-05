@@ -16,7 +16,7 @@ namespace FinalProject
             "you took a bit of cash from someones pocket",
         };
 
-        public SeekMoney(Player player, bool isBet=false) : base(player, isBet)
+        public SeekMoney(Player player, int amountToStart, bool isBet=false) : base(player, amountToStart, isBet)
         {
             
         }
@@ -25,7 +25,7 @@ namespace FinalProject
         {
             timer.WaitForTimeout(5, "you start looking for money");
 
-            int chances = random.Next(0, 6);
+            int chances = random.Next(0, 3);
 
             if (chances == 0)
             {
@@ -38,7 +38,7 @@ namespace FinalProject
 
                 Console.WriteLine();
 
-                int moneyAmountFound = random.Next(2, 6);
+                int moneyAmountFound = random.Next(1, 6);
 
                 PlayerWin(moneyAmountFound);
             }

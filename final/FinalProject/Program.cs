@@ -29,19 +29,19 @@ namespace FinalProject
                 switch (userChoice)
                 {
                     case "1":
-                        SeekMoney seekMoney = new SeekMoney(_player);
+                        SeekMoney seekMoney = new SeekMoney(_player, 0);
                         timer.WaitForTimeout(2);
                         break;
                     case "2":
-                        BlackJack blackJack = new BlackJack(_player);
+                        BlackJack blackJack = new BlackJack(_player, 20);
                         timer.WaitForTimeout(2);
                         break;
                     case "3":
-                        Roulette roulette = new Roulette(_player);
+                        Roulette roulette = new Roulette(_player, 80);
                         timer.WaitForTimeout(2);
                         break;
                     case "4":
-                        KingJared kingJared = new KingJared(_player);
+                        KingJared kingJared = new KingJared(_player, 200);
                         timer.WaitForTimeout(2);
                         break;
                     case "5":

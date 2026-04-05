@@ -14,7 +14,7 @@ namespace FinalProject
         Random _random = new Random();
         Timer _timer = new Timer(5);
 
-        public BlackJack(Player player) : base(player)
+        public BlackJack(Player player, int amountToStart) : base(player, amountToStart)
         {
             SetAmountToStart(20);
         }
@@ -100,7 +100,7 @@ namespace FinalProject
 
             Console.WriteLine($"hit enter to show the dealer ur card");
             Console.ReadLine();
-            Console.WriteLine($"you showed the dealer your {visibleCard}");
+            Console.WriteLine($"you showed the dealer your {playerVisibleCard}");
         }
 
         public bool DealerHasStood()
