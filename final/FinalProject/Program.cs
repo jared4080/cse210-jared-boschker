@@ -33,7 +33,7 @@ namespace FinalProject
                         timer.WaitForTimeout(2);
                         break;
                     case "2":
-                        BlackJack blackJack = new BlackJack(_player, 20);
+                        BlackJack blackJack = new BlackJack(_player, 15);
                         timer.WaitForTimeout(2);
                         break;
                     case "3":

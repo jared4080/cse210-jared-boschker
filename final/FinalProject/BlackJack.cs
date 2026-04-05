@@ -16,7 +16,7 @@ namespace FinalProject
 
         public BlackJack(Player player, int amountToStart) : base(player, amountToStart)
         {
-            SetAmountToStart(15);
+            
         }
 
 
