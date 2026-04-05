@@ -5,7 +5,7 @@ namespace FinalProject
 {    
     public class Player
     {
-        int _moneyAmount = 10;
+        int _moneyAmount = 1000;
         string _name;
 
 

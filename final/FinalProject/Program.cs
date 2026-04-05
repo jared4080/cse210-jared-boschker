@@ -17,7 +17,7 @@ namespace FinalProject
             while (!_hasQuit)
             {
                 Console.WriteLine("\ntime to gamble!! :D");
-                Console.WriteLine("(1) baccrat\n(2) black jack\n(3) 3 card poker\n(4) roulette\n(5) quit");
+                Console.WriteLine("(1) look for money\n(2) black jack\n(3) roulette\n(4) challenge jared\n(5) quit");
                 Console.Write("\nwhich one? ");
                 string userChoice = Console.ReadLine();
                 
@@ -29,24 +29,24 @@ namespace FinalProject
                 switch (userChoice)
                 {
                     case "1":
-                        Baccarat baccarat = new Baccarat(player);
-                        timer.WaitForTimeout(3);
+                        SeekMoney seekMoney = new SeekMoney(player);
+                        timer.WaitForTimeout(2);
                         break;
                     case "2":
                         BlackJack blackJack = new BlackJack(player);
-                        timer.WaitForTimeout(3);
+                        timer.WaitForTimeout(2);
                         break;
                     case "3":
-                        CardPoker cardPoker = new CardPoker(player);
-                        timer.WaitForTimeout(3);
+                        Roulette roulette = new Roulette(player);
+                        timer.WaitForTimeout(2);
                         break;
                     case "4":
-                        Roulette roulette = new Roulette(player);
-                        timer.WaitForTimeout(3);
+                        KingJared kingJared = new KingJared(player);
+                        timer.WaitForTimeout(2);
                         break;
                     case "5":
-                        _hasQuit = true;
                         Console.WriteLine("you left the casino :(");
+                        _hasQuit = true;
                         break;
                 }
             }

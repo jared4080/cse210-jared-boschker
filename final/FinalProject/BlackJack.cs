@@ -16,7 +16,7 @@ namespace FinalProject
 
         public BlackJack(Player player) : base(player)
         {
-            
+            SetAmountToStart(20);
         }
 
 

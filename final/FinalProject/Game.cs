@@ -1,42 +1,57 @@
 using System;
+using System.Runtime.CompilerServices;
 
 
 namespace FinalProject
 {    
     public abstract class Game
     {
-        int currencyToStart = 0;
-        int minBetAmount = 0;
-        int playerBetAmount = 0;
+        int _currencyToStart = 0;
+        int _minBetAmount = 0;
+        int _playerBetAmount = 0;
 
-        int npcBetAmount = 0;
+        int _npcBetAmount = 0;
 
         Player _player;
 
 
-        public Game(Player player)
+        public Game(Player player, bool isBet=true)
         {
             _player = player;
 
-            PlaceBet(_player.GetMoneyAmount());
+            if (_player.GetMoneyAmount() >= _currencyToStart)
+            {                
+                if (isBet)
+                {
+                    PlaceBet(_player.GetMoneyAmount());
+                }
+                else
+                {
+                    Start();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"you gotta have at least ${_minBetAmount} to gamble on this one");
+                ExitGame();
+            }
         }
 
 
         public int GetCurrencyToStart()
         {
-            return currencyToStart;
+            return _currencyToStart;
         }
 
         public void PlaceBet(int playerCurrency)
         {
-            Console.WriteLine($"you gotta have at least ${minBetAmount} to gamble on this one");
             Console.Write("\nhow much u betting? ");
             
             while (true)
             {
                 try
                 {
-                    playerBetAmount = Int32.Parse(Console.ReadLine());
+                    _playerBetAmount = Int32.Parse(Console.ReadLine());
                     break;
                 }
                 catch
@@ -45,7 +60,7 @@ namespace FinalProject
                 }
             }
 
-            if (playerBetAmount < minBetAmount || playerCurrency < playerBetAmount)
+            if (_playerBetAmount < _minBetAmount || playerCurrency < _playerBetAmount)
             {
                 Console.WriteLine("\nnot enough money bub");
                 ExitGame();
@@ -58,9 +73,9 @@ namespace FinalProject
                 
                 double percentage = random.Next(5, 50) / 100.0;
                 int direction = random.Next(0, 2) == 0 ? 1 : -1;
-                npcBetAmount = playerBetAmount + (int)(playerBetAmount * percentage * direction);
+                _npcBetAmount = _playerBetAmount + (int)(_playerBetAmount * percentage * direction);
                 
-                Console.WriteLine($"the guy ur up against threw ${npcBetAmount} on the table");
+                Console.WriteLine($"the guy ur up against threw ${_npcBetAmount} on the table");
 
                 Start();
             }
@@ -71,24 +86,29 @@ namespace FinalProject
             Console.WriteLine("ok, we done gambling on this one");
         }
 
+        public void SetAmountToStart(int amount)
+        {
+            _minBetAmount = amount;
+        }
+
         public void PlayerWin(int amount)
         {
-            _player.ChangeCurrency(npcBetAmount);
+            _player.ChangeCurrency(amount);
         }
 
         public void PlayerLose(int amount)
         {
-            _player.ChangeCurrency(-playerBetAmount);
+            _player.ChangeCurrency(-amount);
         }
 
         public int GetNPCBetAmount()
         {
-            return npcBetAmount;
+            return _npcBetAmount;
         }
 
         public int GetPlayerBetAmount()
         {
-            return playerBetAmount;
+            return _playerBetAmount;
         }
 
         public void DisplayMessage(string message)

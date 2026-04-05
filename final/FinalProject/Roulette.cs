@@ -9,7 +9,7 @@ namespace FinalProject
 
         public Roulette(Player player) : base(player)
         {
-            
+            SetAmountToStart(100);
         }
 
         public override void Start()
